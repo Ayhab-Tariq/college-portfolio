@@ -14,7 +14,7 @@ const floatingElements = [
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 lg:pt-24">
       {/* Background Image - College Life */}
       <div className="absolute inset-0 z-0">
         <Image
