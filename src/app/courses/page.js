@@ -47,8 +47,23 @@ export default function CoursesPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 gradient-hero overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?q=80&w=2070"
+            alt="Students studying in library"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Multi-layer Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/90 via-violet-950/80 to-purple-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+        </div>
+
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10 z-[1]">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -62,13 +77,19 @@ export default function CoursesPage() {
             transition={{ duration: 0.5 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Badge className="mb-4 bg-white/20 text-white border-0">
+            <Badge className="mb-4 bg-white/10 backdrop-blur-sm text-white border border-white/20">
               {courses.length} Programs Available
             </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
-              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">Courses</span>
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+            >
+              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">Courses</span>
             </h1>
-            <p className="text-lg text-white/70 mb-8">
+            <p
+              className="text-lg text-white/90 mb-8 drop-shadow-md"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+            >
               Discover industry-leading programs designed to prepare you for success.
               Find the perfect course to achieve your career goals.
             </p>

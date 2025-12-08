@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   Target,
@@ -77,8 +78,23 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 gradient-hero overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1562774053-701939374585?q=80&w=2086"
+            alt="University campus building"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Multi-layer Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-teal-950/80 to-cyan-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+        </div>
+
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10 z-[1]">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -91,16 +107,22 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Badge className="mb-4 bg-white/20 text-white border-0">
+            <Badge className="mb-4 bg-white/10 backdrop-blur-sm text-white border border-white/20">
               About EduVerse
             </Badge>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6">
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+            >
               Empowering Minds,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-violet-400">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400">
                 Shaping Futures
               </span>
             </h1>
-            <p className="text-lg text-white/70">
+            <p
+              className="text-lg text-white/90 drop-shadow-md"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+            >
               For over 25 years, we&apos;ve been dedicated to providing world-class education
               and creating opportunities for students to achieve their dreams.
             </p>

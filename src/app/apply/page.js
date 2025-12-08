@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import {
   User,
@@ -177,8 +178,23 @@ export default function ApplyPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 gradient-hero overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="relative pt-32 pb-16 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1606761568499-6d2451b23c66?q=80&w=2074"
+            alt="Students applying for admission"
+            fill
+            className="object-cover"
+            priority
+          />
+          {/* Multi-layer Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-indigo-950/80 to-violet-950/90" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+        </div>
+
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10 z-[1]">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -191,13 +207,19 @@ export default function ApplyPage() {
             animate={{ opacity: 1, y: 0 }}
             className="max-w-3xl mx-auto text-center"
           >
-            <Badge className="mb-4 bg-white/20 text-white border-0">
+            <Badge className="mb-4 bg-white/10 backdrop-blur-sm text-white border border-white/20">
               Admissions Open 2025
             </Badge>
-            <h1 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+            <h1
+              className="text-4xl sm:text-5xl font-bold text-white mb-4 drop-shadow-lg"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+            >
               Apply for Admission
             </h1>
-            <p className="text-lg text-white/70">
+            <p
+              className="text-lg text-white/90 drop-shadow-md"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.5)' }}
+            >
               Take the first step towards your dream career. Fill out the application
               form below and our admissions team will get back to you soon.
             </p>
