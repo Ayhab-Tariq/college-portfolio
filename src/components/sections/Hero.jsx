@@ -70,7 +70,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm mb-8 shadow-lg"
           >
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            Admissions Open for 2025
+            Admissions Open for 2026
           </motion.div>
 
           {/* Main Heading */}
