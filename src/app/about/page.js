@@ -12,7 +12,8 @@ import {
   BookOpen,
   Globe,
   TrendingUp,
-  CheckCircle
+  CheckCircle,
+  ArrowRight
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
@@ -358,35 +359,135 @@ export default function AboutPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+      <section className="py-24 relative overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?q=80&w=2049"
+            alt="Students celebrating together"
+            fill
+            className="object-cover"
+          />
+          {/* Multi-layer Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+        </div>
+
+        {/* Pattern Overlay */}
+        <div className="absolute inset-0 opacity-5 z-[1]">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
           }} />
         </div>
 
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+        {/* Animated Orbs */}
+        <motion.div
+          animate={{
+            scale: [1, 1.2, 1],
+            opacity: [0.2, 0.3, 0.2]
+          }}
+          transition={{ duration: 6, repeat: Infinity }}
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl z-[1]"
+        />
+        <motion.div
+          animate={{
+            scale: [1.2, 1, 1.2],
+            opacity: [0.3, 0.2, 0.3]
+          }}
+          transition={{ duration: 8, repeat: Infinity }}
+          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl z-[1]"
+        />
+
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
+            className="max-w-3xl mx-auto text-center"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              Ready to Join Our Community?
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm mb-6 shadow-lg"
+            >
+              <Heart className="h-4 w-4 text-pink-400" />
+              <span>Join 25,000+ Alumni Worldwide</span>
+            </motion.div>
+
+            <h2
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
+              style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
+            >
+              Ready to Join Our{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">
+                Community?
+              </span>
             </h2>
-            <p className="text-lg text-white/70 mb-8 max-w-2xl mx-auto">
+
+            <p
+              className="text-lg sm:text-xl text-white/80 mb-10 max-w-2xl mx-auto"
+              style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.3)' }}
+            >
               Take the first step towards a brighter future. Apply now and become
-              part of the EduVerse family.
+              part of the EduVerse family where dreams transform into achievements.
             </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="bg-white text-foreground hover:bg-white/90">
-                <Link href="/apply">Apply Now</Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
-                <Link href="/contact">Contact Us</Link>
-              </Button>
-            </div>
+
+            {/* Stats Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="flex flex-wrap items-center justify-center gap-8 mb-10"
+            >
+              {[
+                { value: "25K+", label: "Alumni" },
+                { value: "30+", label: "Countries" },
+                { value: "95%", label: "Success Rate" },
+              ].map((stat, index) => (
+                <div key={index} className="text-center">
+                  <div className="text-2xl sm:text-3xl font-bold text-white">{stat.value}</div>
+                  <div className="text-white/60 text-sm">{stat.label}</div>
+                </div>
+              ))}
+            </motion.div>
+
+            {/* CTA Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.3 }}
+              className="flex flex-col sm:flex-row items-center justify-center gap-4"
+            >
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                <Button
+                  asChild
+                  size="lg"
+                  className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0"
+                >
+                  <Link href="/apply" className="flex items-center gap-2">
+                    <Award className="h-5 w-5" />
+                    Apply Now
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </motion.div>
+
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+                <Button
+                  asChild
+                  size="lg"
+                  variant="outline"
+                  className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full"
+                >
+                  <Link href="/contact">Contact Us</Link>
+                </Button>
+              </motion.div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
