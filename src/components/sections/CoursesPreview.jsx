@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock, Users, Star } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -82,29 +83,40 @@ export default function CoursesPreview() {
               <Link href={`/courses/${course.id}`}>
                 <Card className="group h-full bg-card hover:shadow-2xl transition-all duration-500 border-border/50 overflow-hidden cursor-pointer">
                   {/* Course Image */}
-                  <div className={`relative h-48 bg-gradient-to-br ${course.color} overflow-hidden`}>
-                    <div className="absolute inset-0 bg-black/20" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <span className="text-6xl font-bold text-white/20">
-                        {course.title.charAt(0)}
-                      </span>
-                    </div>
+                  <div className="relative h-48 overflow-hidden">
+                    <Image
+                      src={course.heroImage}
+                      alt={course.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    {/* Gradient Overlay */}
+                    <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent`} />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-30`} />
+
+                    {/* Level Badge */}
                     <div className="absolute top-4 left-4">
                       <Badge className="bg-white/20 text-white border-0 backdrop-blur-sm">
                         {course.level}
                       </Badge>
                     </div>
+
+                    {/* Rating Badge */}
                     <div className="absolute bottom-4 right-4 flex items-center gap-1 bg-white/20 backdrop-blur-sm rounded-full px-3 py-1">
                       <Star className="h-4 w-4 text-yellow-400 fill-yellow-400" />
                       <span className="text-white text-sm font-medium">{course.rating}</span>
                     </div>
+
+                    {/* Course Title Overlay */}
+                    <div className="absolute bottom-4 left-4">
+                      <h3 className="text-white font-bold text-lg drop-shadow-lg">
+                        {course.title}
+                      </h3>
+                    </div>
                   </div>
 
                   <CardContent className="p-6">
-                    {/* Course Info */}
-                    <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {course.title}
-                    </h3>
+                    {/* Course Description */}
                     <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {course.shortDescription}
                     </p>
