@@ -41,12 +41,12 @@ export default function CTA() {
           className="object-cover"
         />
         {/* Multi-layer Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/40" />
       </div>
 
       {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 z-[1]">
+      <div className="absolute inset-0 opacity-5 z-1">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
           backgroundSize: '40px 40px'
@@ -62,7 +62,7 @@ export default function CTA() {
           y: [0, -30, 0]
         }}
         transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/6 w-72 h-72 bg-violet-500/20 rounded-full blur-3xl z-[1]"
+        className="absolute top-1/4 left-1/6 w-72 h-72 bg-violet-500/20 rounded-full blur-3xl z-1"
       />
       <motion.div
         animate={{
@@ -72,7 +72,7 @@ export default function CTA() {
           y: [0, 40, 0]
         }}
         transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 right-1/6 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl z-[1]"
+        className="absolute bottom-1/4 right-1/6 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl z-1"
       />
       <motion.div
         animate={{
@@ -80,7 +80,7 @@ export default function CTA() {
           opacity: [0.15, 0.25, 0.15]
         }}
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/15 rounded-full blur-3xl z-[1]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/15 rounded-full blur-3xl z-1"
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -112,7 +112,7 @@ export default function CTA() {
                   style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
                 >
                   Ready to Transform{" "}
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">
+                  <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-violet-400 to-pink-400">
                     Your Future?
                   </span>
                 </h2>
@@ -160,7 +160,7 @@ export default function CTA() {
                     <Button
                       asChild
                       size="lg"
-                      className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0"
+                      className="bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0"
                     >
                       <Link href="/apply" className="flex items-center gap-2">
                         <GraduationCap className="h-5 w-5" />
@@ -197,7 +197,7 @@ export default function CTA() {
                     href="tel:+15551234567"
                     className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
                   >
-                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-gradient-to-br group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
+                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-linear-to-br group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
                       <Phone className="h-5 w-5" />
                     </div>
                     <span>+1 (555) 123-4567</span>
@@ -206,7 +206,7 @@ export default function CTA() {
                     href="mailto:admissions@eduverse.edu"
                     className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
                   >
-                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-gradient-to-br group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
+                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-linear-to-br group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
                       <Mail className="h-5 w-5" />
                     </div>
                     <span>admissions@eduverse.edu</span>
@@ -225,13 +225,13 @@ export default function CTA() {
             >
               <div className="relative">
                 {/* Glow Effect */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-violet-600/30 to-cyan-600/30 rounded-3xl blur-xl" />
+                <div className="absolute -inset-4 bg-linear-to-r from-violet-600/30 to-cyan-600/30 rounded-3xl blur-xl" />
 
                 {/* Card */}
                 <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
                   {/* Card Header */}
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-violet-500/30">
+                    <div className="inline-flex items-center justify-center p-3 bg-linear-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-violet-500/30">
                       <Trophy className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Why Students Choose Us</h3>
@@ -249,7 +249,7 @@ export default function CTA() {
                         transition={{ delay: 0.3 + index * 0.1 }}
                         className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
                       >
-                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-violet-600/20 to-indigo-600/20">
+                        <div className="p-2.5 rounded-xl bg-linear-to-br from-violet-600/20 to-indigo-600/20">
                           <stat.icon className="h-5 w-5 text-violet-400" />
                         </div>
                         <div>
@@ -266,7 +266,7 @@ export default function CTA() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.6 }}
-                    className="mt-6 p-4 rounded-xl bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30"
+                    className="mt-6 p-4 rounded-xl bg-linear-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30"
                   >
                     <div className="flex items-center gap-3">
                       <Clock className="h-5 w-5 text-orange-400" />

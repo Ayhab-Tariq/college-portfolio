@@ -26,13 +26,13 @@ export default function Hero() {
           quality={90}
         />
         {/* Multi-layer Overlay for better text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-transparent" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-linear-to-r from-black/70 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-black/40" />
         <div className="absolute inset-0 bg-violet-950/30" />
       </div>
 
       {/* Animated Background Elements */}
-      <div className="absolute inset-0 z-[1]">
+      <div className="absolute inset-0 z-1">
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
@@ -45,19 +45,19 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.2 }}
         transition={{ duration: 1 }}
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl z-[1]"
+        className="absolute top-1/4 left-1/4 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl z-1"
       />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.15 }}
         transition={{ duration: 1, delay: 0.3 }}
-        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl z-[1]"
+        className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl z-1"
       />
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 0.1 }}
         transition={{ duration: 1.5, delay: 0.5 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl z-[1]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-indigo-500/10 rounded-full blur-3xl z-1"
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -82,7 +82,7 @@ export default function Hero() {
             style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
           >
             Shape Your Future with{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-violet-400 to-pink-400">
               World-Class Education
             </span>
           </motion.h1>
@@ -110,7 +110,7 @@ export default function Hero() {
             <Button
               asChild
               size="lg"
-              className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0 px-8 py-6 text-lg rounded-full hover:scale-105 transition-all shadow-lg shadow-violet-500/25"
+              className="bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white border-0 px-8 py-6 text-lg rounded-full hover:scale-105 transition-all shadow-lg shadow-violet-500/25"
             >
               <Link href="/courses">
                 Explore Courses
@@ -172,7 +172,7 @@ export default function Hero() {
             style={{ animationDelay: `${index * 0.5}s` }}
           >
             <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl p-4 flex items-center gap-3 shadow-xl">
-              <div className="p-2 rounded-lg bg-gradient-to-br from-violet-500/30 to-indigo-500/30">
+              <div className="p-2 rounded-lg bg-linear-to-br from-violet-500/30 to-indigo-500/30">
                 <item.icon className="h-5 w-5 text-white" />
               </div>
               <span className="text-white text-sm font-medium">{item.label}</span>

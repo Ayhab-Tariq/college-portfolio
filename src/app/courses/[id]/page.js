@@ -75,11 +75,11 @@ export default function CourseDetailPage() {
             priority
           />
           {/* Dynamic Overlay Gradient based on course color */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${overlayGradient}`} />
+          <div className={`absolute inset-0 bg-linear-to-br ${overlayGradient}`} />
         </div>
 
         {/* Background Pattern */}
-        <div className="absolute inset-0 opacity-10 z-[1]">
+        <div className="absolute inset-0 opacity-10 z-1">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -90,12 +90,12 @@ export default function CourseDetailPage() {
         <motion.div
           animate={{ y: [0, -20, 0] }}
           transition={{ duration: 4, repeat: Infinity }}
-          className="absolute top-1/4 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl z-[1]"
+          className="absolute top-1/4 left-10 w-64 h-64 bg-white/10 rounded-full blur-3xl z-1"
         />
         <motion.div
           animate={{ y: [0, 20, 0] }}
           transition={{ duration: 5, repeat: Infinity }}
-          className="absolute bottom-1/4 right-10 w-80 h-80 bg-black/10 rounded-full blur-3xl z-[1]"
+          className="absolute bottom-1/4 right-10 w-80 h-80 bg-black/10 rounded-full blur-3xl z-1"
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -331,7 +331,7 @@ export default function CourseDetailPage() {
                         <AccordionItem key={index} value={`semester-${index}`}>
                           <AccordionTrigger className="hover:no-underline">
                             <div className="flex items-center gap-3">
-                              <div className={`w-8 h-8 rounded-full bg-gradient-to-br ${course.color} flex items-center justify-center text-white text-sm font-bold`}>
+                              <div className={`w-8 h-8 rounded-full bg-linear-to-br ${course.color} flex items-center justify-center text-white text-sm font-bold`}>
                                 {index + 1}
                               </div>
                               <span className="font-semibold">{sem.semester}</span>
@@ -370,7 +370,7 @@ export default function CourseDetailPage() {
                   <motion.div key={index} variants={itemVariants}>
                     <Card className="h-full hover:shadow-lg transition-shadow">
                       <CardContent className="p-6">
-                        <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${course.color} flex items-center justify-center mb-4`}>
+                        <div className={`w-12 h-12 rounded-xl bg-linear-to-br ${course.color} flex items-center justify-center mb-4`}>
                           <CheckCircle className="h-6 w-6 text-white" />
                         </div>
                         <h3 className="font-semibold mb-2">{feature}</h3>
@@ -388,7 +388,7 @@ export default function CourseDetailPage() {
       </section>
 
       {/* CTA Section */}
-      <section className={`py-20 bg-gradient-to-br ${course.color} relative overflow-hidden`}>
+      <section className={`py-20 bg-linear-to-br ${course.color} relative overflow-hidden`}>
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,

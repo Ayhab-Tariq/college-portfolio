@@ -54,7 +54,7 @@ export default function Navbar() {
     >
       {/* Gradient line on top when scrolled */}
       <div className={cn(
-        "absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 transition-opacity duration-300",
+        "absolute top-0 left-0 right-0 h-[2px] bg-linear-to-r from-violet-600 via-indigo-600 to-cyan-600 transition-opacity duration-300",
         isScrolled ? "opacity-100" : "opacity-0"
       )} />
 
@@ -68,17 +68,17 @@ export default function Navbar() {
               whileTap={{ scale: 0.95 }}
             >
               {/* Glow effect */}
-              <div className="absolute -inset-2 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
+              <div className="absolute -inset-2 bg-linear-to-r from-violet-600 to-indigo-600 rounded-xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
 
               {/* Logo container */}
-              <div className="relative bg-gradient-to-br from-violet-600 to-indigo-600 p-2.5 rounded-xl shadow-lg">
+              <div className="relative bg-linear-to-br from-violet-600 to-indigo-600 p-2.5 rounded-xl shadow-lg">
                 <GraduationCap className="h-6 w-6 text-white" />
               </div>
             </motion.div>
 
             <div className="flex flex-col">
               <span className={cn(
-                "text-xl font-bold bg-gradient-to-r from-violet-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent",
+                "text-xl font-bold bg-linear-to-r from-violet-600 via-indigo-600 to-cyan-600 bg-clip-text text-transparent",
                 !isScrolled && "drop-shadow-lg"
               )}>
                 EduVerse
@@ -123,7 +123,7 @@ export default function Navbar() {
                     {isActive && (
                       <motion.div
                         layoutId="activeNavBg"
-                        className="absolute inset-0 bg-gradient-to-r from-violet-600 to-indigo-600 rounded-full shadow-lg"
+                        className="absolute inset-0 bg-linear-to-r from-violet-600 to-indigo-600 rounded-full shadow-lg"
                         transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                       />
                     )}
@@ -176,7 +176,7 @@ export default function Navbar() {
             >
               <Button
                 asChild
-                className="relative overflow-hidden rounded-full bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-lg shadow-violet-500/25 border-0 px-6"
+                className="relative overflow-hidden rounded-full bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-lg shadow-violet-500/25 border-0 px-6"
               >
                 <Link href="/apply" className="flex items-center gap-2">
                   <Sparkles className="h-4 w-4" />
@@ -208,10 +208,10 @@ export default function Navbar() {
             </SheetTrigger>
 
             <SheetContent side="right" className="w-[320px] sm:w-[400px] p-0 border-l-0">
-              <div className="h-full bg-gradient-to-b from-violet-950 via-indigo-950 to-slate-950 p-6">
+              <div className="h-full bg-linear-to-b from-violet-950 via-indigo-950 to-slate-950 p-6">
                 {/* Mobile Logo */}
                 <div className="flex items-center gap-3 mb-10">
-                  <div className="bg-gradient-to-br from-violet-600 to-indigo-600 p-2.5 rounded-xl">
+                  <div className="bg-linear-to-br from-violet-600 to-indigo-600 p-2.5 rounded-xl">
                     <GraduationCap className="h-6 w-6 text-white" />
                   </div>
                   <div className="flex flex-col">
@@ -241,14 +241,14 @@ export default function Navbar() {
                           className={cn(
                             "flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-300",
                             isActive
-                              ? "bg-gradient-to-r from-violet-600/20 to-indigo-600/20 border border-violet-500/30 text-white"
+                              ? "bg-linear-to-r from-violet-600/20 to-indigo-600/20 border border-violet-500/30 text-white"
                               : "text-white/70 hover:text-white hover:bg-white/5"
                           )}
                         >
                           <div className={cn(
                             "p-2 rounded-lg",
                             isActive
-                              ? "bg-gradient-to-br from-violet-600 to-indigo-600"
+                              ? "bg-linear-to-br from-violet-600 to-indigo-600"
                               : "bg-white/10"
                           )}>
                             <Icon className="h-5 w-5" />
@@ -289,7 +289,7 @@ export default function Navbar() {
                   >
                     <Button
                       asChild
-                      className="w-full rounded-xl h-12 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-lg shadow-violet-500/25 border-0"
+                      className="w-full rounded-xl h-12 bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white shadow-lg shadow-violet-500/25 border-0"
                     >
                       <Link href="/apply" onClick={() => setIsOpen(false)}>
                         <Sparkles className="h-4 w-4 mr-2" />

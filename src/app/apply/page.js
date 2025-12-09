@@ -189,12 +189,12 @@ export default function ApplyPage() {
             priority
           />
           {/* Multi-layer Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-950/90 via-indigo-950/80 to-violet-950/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-blue-950/90 via-indigo-950/80 to-violet-950/90" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/30" />
         </div>
 
         {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10 z-[1]">
+        <div className="absolute inset-0 opacity-10 z-1">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -529,7 +529,7 @@ export default function ApplyPage() {
                           const selected = courses.find(c => c.id === formData.selectedCourse);
                           return selected && (
                             <div className="flex items-start gap-4">
-                              <div className={`w-12 h-12 rounded-lg bg-gradient-to-br ${selected.color} flex items-center justify-center shrink-0`}>
+                              <div className={`w-12 h-12 rounded-lg bg-linear-to-br ${selected.color} flex items-center justify-center shrink-0`}>
                                 <GraduationCap className="h-6 w-6 text-white" />
                               </div>
                               <div>

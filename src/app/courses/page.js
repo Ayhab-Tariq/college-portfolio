@@ -58,12 +58,12 @@ export default function CoursesPage() {
             priority
           />
           {/* Multi-layer Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-indigo-950/90 via-violet-950/80 to-purple-950/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-indigo-950/90 via-violet-950/80 to-purple-950/90" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/30" />
         </div>
 
         {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10 z-[1]">
+        <div className="absolute inset-0 opacity-10 z-1">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -84,7 +84,7 @@ export default function CoursesPage() {
               className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 drop-shadow-lg"
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
             >
-              Explore Our <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">Courses</span>
+              Explore Our <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-violet-400 to-pink-400">Courses</span>
             </h1>
             <p
               className="text-lg text-white/90 mb-8 drop-shadow-md"
@@ -163,8 +163,8 @@ export default function CoursesPage() {
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
                           />
                           {/* Gradient Overlays */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                          <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-20`} />
+                          <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent" />
+                          <div className={`absolute inset-0 bg-linear-to-br ${course.color} opacity-20`} />
 
                           {/* Level Badge */}
                           <div className="absolute top-4 left-4">

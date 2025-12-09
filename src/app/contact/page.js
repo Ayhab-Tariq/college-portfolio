@@ -124,12 +124,12 @@ export default function ContactPage() {
             priority
           />
           {/* Multi-layer Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-rose-950/90 via-pink-950/80 to-purple-950/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-rose-950/90 via-pink-950/80 to-purple-950/90" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/30" />
         </div>
 
         {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10 z-[1]">
+        <div className="absolute inset-0 opacity-10 z-1">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -150,7 +150,7 @@ export default function ContactPage() {
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
             >
               We&apos;d Love to{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink-400 via-rose-400 to-orange-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-pink-400 via-rose-400 to-orange-400">
                 Hear From You
               </span>
             </h1>
@@ -178,7 +178,7 @@ export default function ContactPage() {
               >
                 <Card className="h-full hover:shadow-lg transition-shadow">
                   <CardContent className="p-6 text-center">
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${info.color} flex items-center justify-center mx-auto mb-4`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${info.color} flex items-center justify-center mx-auto mb-4`}>
                       <info.icon className="h-7 w-7 text-white" />
                     </div>
                     <h3 className="font-semibold text-lg mb-3">{info.title}</h3>
@@ -334,7 +334,7 @@ export default function ContactPage() {
             >
               {/* Map Placeholder */}
               <Card className="overflow-hidden">
-                <div className="h-[300px] bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
+                <div className="h-[300px] bg-linear-to-br from-primary/20 to-accent/20 flex items-center justify-center">
                   <div className="text-center">
                     <MapPin className="h-12 w-12 text-primary mx-auto mb-4" />
                     <p className="text-muted-foreground">

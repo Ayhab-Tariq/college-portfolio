@@ -57,7 +57,7 @@ const footerLinks = {
 
 const socialLinks = [
   { icon: Facebook, href: "#", label: "Facebook", followers: "25K", color: "group-hover:bg-blue-600" },
-  { icon: Instagram, href: "#", label: "Instagram", followers: "18K", color: "group-hover:bg-gradient-to-br group-hover:from-purple-600 group-hover:to-pink-500" },
+  { icon: Instagram, href: "#", label: "Instagram", followers: "18K", color: "group-hover:bg-linear-to-br group-hover:from-purple-600 group-hover:to-pink-500" },
   { icon: Twitter, href: "#", label: "Twitter", followers: "12K", color: "group-hover:bg-sky-500" },
   { icon: Linkedin, href: "#", label: "LinkedIn", followers: "8K", color: "group-hover:bg-blue-700" },
   { icon: Youtube, href: "#", label: "YouTube", followers: "5K", color: "group-hover:bg-red-600" },
@@ -95,7 +95,7 @@ export default function Footer() {
       </div>
 
       {/* Main Footer Background */}
-      <div className="bg-gradient-to-b from-slate-900 via-slate-950 to-black pt-20">
+      <div className="bg-linear-to-b from-slate-900 via-slate-950 to-black pt-20">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
           {/* Animated Gradient Orbs */}
@@ -173,9 +173,9 @@ export default function Footer() {
                   whileHover={{ scale: 1.05 }}
                   className="relative group"
                 >
-                  <div className="absolute inset-0 bg-gradient-to-r from-violet-600/20 to-cyan-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="absolute inset-0 bg-linear-to-r from-violet-600/20 to-cyan-600/20 rounded-2xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="relative flex items-center gap-4 p-4 rounded-2xl bg-white/5 border border-white/5 group-hover:border-white/10 transition-all">
-                    <div className="p-3 rounded-xl bg-gradient-to-br from-violet-600/20 to-indigo-600/20 group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
+                    <div className="p-3 rounded-xl bg-linear-to-br from-violet-600/20 to-indigo-600/20 group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
                       <stat.icon className="h-6 w-6 text-violet-400" />
                     </div>
                     <div>
@@ -208,7 +208,7 @@ export default function Footer() {
                     fill
                     className="object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
+                  <div className="absolute inset-0 bg-linear-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
                 </div>
 
                 <div className="relative p-8 md:p-12 flex flex-col lg:flex-row items-center justify-between gap-8">
@@ -241,7 +241,7 @@ export default function Footer() {
                         />
                       </div>
                       <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                        <Button className="h-14 px-8 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white rounded-xl shadow-lg shadow-violet-500/25 font-semibold">
+                        <Button className="h-14 px-8 bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white rounded-xl shadow-lg shadow-violet-500/25 font-semibold">
                           Subscribe
                           <Send className="h-4 w-4 ml-2" />
                         </Button>
@@ -274,14 +274,14 @@ export default function Footer() {
                   whileHover={{ scale: 1.05, rotate: 5 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <div className="absolute -inset-3 bg-gradient-to-r from-violet-600 to-cyan-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
-                  <div className="relative bg-gradient-to-br from-violet-600 via-indigo-600 to-cyan-600 p-3 rounded-2xl shadow-lg">
+                  <div className="absolute -inset-3 bg-linear-to-r from-violet-600 to-cyan-600 rounded-2xl blur-lg opacity-40 group-hover:opacity-70 transition-opacity duration-300" />
+                  <div className="relative bg-linear-to-br from-violet-600 via-indigo-600 to-cyan-600 p-3 rounded-2xl shadow-lg">
                     <GraduationCap className="h-8 w-8 text-white" />
                   </div>
                 </motion.div>
 
                 <div className="flex flex-col">
-                  <span className="text-3xl font-bold bg-gradient-to-r from-violet-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
+                  <span className="text-3xl font-bold bg-linear-to-r from-violet-400 via-indigo-400 to-cyan-400 bg-clip-text text-transparent">
                     EduVerse
                   </span>
                   <span className="text-xs font-medium tracking-widest uppercase text-white/40">
@@ -302,7 +302,7 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   className="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-violet-500/30 transition-all group"
                 >
-                  <div className="p-2.5 rounded-lg bg-gradient-to-br from-violet-600/20 to-indigo-600/20 group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
+                  <div className="p-2.5 rounded-lg bg-linear-to-br from-violet-600/20 to-indigo-600/20 group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
                     <Phone className="h-5 w-5 text-violet-400" />
                   </div>
                   <div>
@@ -316,7 +316,7 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   className="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-cyan-500/30 transition-all group"
                 >
-                  <div className="p-2.5 rounded-lg bg-gradient-to-br from-cyan-600/20 to-blue-600/20 group-hover:from-cyan-600/30 group-hover:to-blue-600/30 transition-all">
+                  <div className="p-2.5 rounded-lg bg-linear-to-br from-cyan-600/20 to-blue-600/20 group-hover:from-cyan-600/30 group-hover:to-blue-600/30 transition-all">
                     <Mail className="h-5 w-5 text-cyan-400" />
                   </div>
                   <div>
@@ -330,7 +330,7 @@ export default function Footer() {
                   whileHover={{ x: 5 }}
                   className="flex items-center gap-4 p-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/5 hover:border-emerald-500/30 transition-all group"
                 >
-                  <div className="p-2.5 rounded-lg bg-gradient-to-br from-emerald-600/20 to-teal-600/20 group-hover:from-emerald-600/30 group-hover:to-teal-600/30 transition-all">
+                  <div className="p-2.5 rounded-lg bg-linear-to-br from-emerald-600/20 to-teal-600/20 group-hover:from-emerald-600/30 group-hover:to-teal-600/30 transition-all">
                     <MapPin className="h-5 w-5 text-emerald-400" />
                   </div>
                   <div>
@@ -350,7 +350,7 @@ export default function Footer() {
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ scale: 1.05 }}
-                    className="flex-1 text-center p-3 rounded-xl bg-gradient-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20"
+                    className="flex-1 text-center p-3 rounded-xl bg-linear-to-br from-amber-500/10 to-orange-500/10 border border-amber-500/20"
                   >
                     <div className="text-amber-400 font-bold text-lg">{award.title}</div>
                     <div className="text-white/50 text-[10px] uppercase tracking-wider">{award.subtitle}</div>
@@ -485,7 +485,7 @@ export default function Footer() {
                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
                   <Button
                     asChild
-                    className="w-full h-12 bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white rounded-xl shadow-lg shadow-violet-500/25"
+                    className="w-full h-12 bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white rounded-xl shadow-lg shadow-violet-500/25"
                   >
                     <Link href="/apply" className="flex items-center justify-center gap-2">
                       <Sparkles className="h-4 w-4" />
@@ -510,7 +510,7 @@ export default function Footer() {
               </div>
 
               {/* Office Hours */}
-              <div className="mt-6 p-4 rounded-xl bg-gradient-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20">
+              <div className="mt-6 p-4 rounded-xl bg-linear-to-r from-emerald-500/10 to-teal-500/10 border border-emerald-500/20">
                 <div className="flex items-center gap-3">
                   <Clock className="h-5 w-5 text-emerald-400" />
                   <div>

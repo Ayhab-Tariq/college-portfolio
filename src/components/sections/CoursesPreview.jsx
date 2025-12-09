@@ -91,8 +91,8 @@ export default function CoursesPreview() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {/* Gradient Overlay */}
-                    <div className={`absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent`} />
-                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-30`} />
+                    <div className={`absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent`} />
+                    <div className={`absolute inset-0 bg-linear-to-br ${course.color} opacity-30`} />
 
                     {/* Level Badge */}
                     <div className="absolute top-4 left-4">

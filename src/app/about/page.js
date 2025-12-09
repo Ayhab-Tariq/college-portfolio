@@ -90,12 +90,12 @@ export default function AboutPage() {
             priority
           />
           {/* Multi-layer Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-emerald-950/90 via-teal-950/80 to-cyan-950/90" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-emerald-950/90 via-teal-950/80 to-cyan-950/90" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/30" />
         </div>
 
         {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-10 z-[1]">
+        <div className="absolute inset-0 opacity-10 z-1">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -116,7 +116,7 @@ export default function AboutPage() {
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
             >
               Empowering Minds,{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-emerald-400 to-teal-400">
                 Shaping Futures
               </span>
             </h1>
@@ -163,7 +163,7 @@ export default function AboutPage() {
             >
               <Card className="h-full">
                 <CardContent className="p-8">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-500 flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-violet-500 to-purple-500 flex items-center justify-center mb-6">
                     <Target className="h-7 w-7 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold mb-4">Our Mission</h2>
@@ -184,7 +184,7 @@ export default function AboutPage() {
             >
               <Card className="h-full">
                 <CardContent className="p-8">
-                  <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-6">
+                  <div className="w-14 h-14 rounded-2xl bg-linear-to-br from-cyan-500 to-blue-500 flex items-center justify-center mb-6">
                     <Eye className="h-7 w-7 text-white" />
                   </div>
                   <h2 className="text-2xl font-bold mb-4">Our Vision</h2>
@@ -229,7 +229,7 @@ export default function AboutPage() {
               <motion.div key={index} variants={itemVariants}>
                 <Card className="h-full text-center hover:shadow-lg transition-shadow">
                   <CardContent className="p-6">
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${value.color} flex items-center justify-center mx-auto mb-4`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${value.color} flex items-center justify-center mx-auto mb-4`}>
                       <value.icon className="h-7 w-7 text-white" />
                     </div>
                     <h3 className="font-semibold text-lg mb-2">{value.title}</h3>
@@ -369,12 +369,12 @@ export default function AboutPage() {
             className="object-cover"
           />
           {/* Multi-layer Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/30" />
+          <div className="absolute inset-0 bg-linear-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-black/30" />
         </div>
 
         {/* Pattern Overlay */}
-        <div className="absolute inset-0 opacity-5 z-[1]">
+        <div className="absolute inset-0 opacity-5 z-1">
           <div className="absolute inset-0" style={{
             backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
             backgroundSize: '40px 40px'
@@ -388,7 +388,7 @@ export default function AboutPage() {
             opacity: [0.2, 0.3, 0.2]
           }}
           transition={{ duration: 6, repeat: Infinity }}
-          className="absolute top-1/4 left-1/4 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl z-[1]"
+          className="absolute top-1/4 left-1/4 w-64 h-64 bg-violet-500/20 rounded-full blur-3xl z-1"
         />
         <motion.div
           animate={{
@@ -396,7 +396,7 @@ export default function AboutPage() {
             opacity: [0.3, 0.2, 0.3]
           }}
           transition={{ duration: 8, repeat: Infinity }}
-          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl z-[1]"
+          className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl z-1"
         />
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -422,7 +422,7 @@ export default function AboutPage() {
               style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
             >
               Ready to Join Our{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">
+              <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-violet-400 to-pink-400">
                 Community?
               </span>
             </h2>
@@ -467,7 +467,7 @@ export default function AboutPage() {
                 <Button
                   asChild
                   size="lg"
-                  className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0"
+                  className="bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0"
                 >
                   <Link href="/apply" className="flex items-center gap-2">
                     <Award className="h-5 w-5" />

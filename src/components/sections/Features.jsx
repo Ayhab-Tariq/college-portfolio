@@ -105,7 +105,7 @@ export default function Features() {
                 <CardContent className="p-6 lg:p-8">
                   <div className="flex flex-col h-full">
                     {/* Icon */}
-                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300`}>
                       <feature.icon className="w-full h-full text-white" />
                     </div>
 
