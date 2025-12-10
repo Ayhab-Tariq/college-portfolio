@@ -121,6 +121,15 @@
   }
 }
 
+/* GPU acceleration for smooth animations */
+@layer utilities {
+  .gpu-accelerated {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+}
+
 /* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
@@ -173,21 +182,37 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-/* Animation utilities */
+/* Animation utilities - Optimized for 120fps */
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% {
+    transform: translateY(0px) translateZ(0);
+  }
+  50% {
+    transform: translateY(-10px) translateZ(0);
+  }
 }
 
 .animate-float {
   animation: float 3s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 @keyframes pulse-slow {
   0%, 100% { opacity: 1; }
-  50% { opacity: 0.7; }
+  50% { opacity: 0.6; }
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 3s ease-in-out infinite;
+  animation: pulse-slow 4s ease-in-out infinite;
+  will-change: opacity;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  .animate-float,
+  .animate-pulse-slow,
+  .animate-pulse {
+    animation: none;
+  }
 }

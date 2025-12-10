@@ -6,38 +6,58 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { testimonials } from "@/lib/data";
 
+// Optimized animation variants
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15
+      staggerChildren: 0.12,
+      delayChildren: 0.1
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 }
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+const headerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
 
 export default function Testimonials() {
   return (
     <section className="py-20 lg:py-32 bg-background relative overflow-hidden">
-      {/* Background Decoration */}
+      {/* Background Decoration - Static */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -57,12 +77,16 @@ export default function Testimonials() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8"
         >
-          {testimonials.map((testimonial, index) => (
-            <motion.div key={testimonial.id} variants={itemVariants}>
-              <Card className="h-full bg-card hover:shadow-xl transition-all duration-300 border-border/50 overflow-hidden">
+          {testimonials.map((testimonial) => (
+            <motion.div
+              key={testimonial.id}
+              variants={itemVariants}
+              className="will-change-transform"
+            >
+              <Card className="h-full bg-card hover:shadow-xl transition-shadow duration-300 border-border/50 overflow-hidden">
                 <CardContent className="p-6 lg:p-8">
                   <div className="flex flex-col h-full">
                     {/* Quote Icon */}

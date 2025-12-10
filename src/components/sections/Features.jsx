@@ -43,39 +43,59 @@ const features = [
   }
 ];
 
+// Optimized animation variants
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.08,
+      delayChildren: 0.1
     }
   }
 };
 
 const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 20,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+const headerVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 }
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
 
 export default function Features() {
   return (
     <section className="py-20 lg:py-32 bg-background relative overflow-hidden">
-      {/* Background Elements */}
+      {/* Background Elements - Static, no animation */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="text-primary font-semibold text-sm uppercase tracking-wider">
@@ -96,21 +116,25 @@ export default function Features() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
-          {features.map((feature, index) => (
-            <motion.div key={feature.title} variants={itemVariants}>
-              <Card className="group h-full bg-card hover:shadow-xl transition-all duration-300 border-border/50 hover:border-primary/20 overflow-hidden">
+          {features.map((feature) => (
+            <motion.div
+              key={feature.title}
+              variants={itemVariants}
+              className="will-change-transform"
+            >
+              <Card className="group h-full bg-card hover:shadow-xl transition-shadow duration-300 border-border/50 hover:border-primary/20 overflow-hidden">
                 <CardContent className="p-6 lg:p-8">
                   <div className="flex flex-col h-full">
                     {/* Icon */}
-                    <div className={`w-14 h-14 rounded-2xl bg-linear-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${feature.color} p-3 mb-6 group-hover:scale-110 transition-transform duration-300`}>
                       <feature.icon className="w-full h-full text-white" />
                     </div>
 
                     {/* Content */}
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-200">
                       {feature.title}
                     </h3>
                     <p className="text-muted-foreground leading-relaxed">

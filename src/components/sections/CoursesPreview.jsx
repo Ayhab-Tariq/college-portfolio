@@ -9,22 +9,42 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { courses } from "@/lib/data";
 
+// Optimized animation variants
 const containerVariants = {
-  hidden: { opacity: 0 },
+  hidden: { opacity: 1 },
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1
+      staggerChildren: 0.1,
+      delayChildren: 0.1
     }
   }
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.5 }
+    transition: {
+      duration: 0.5,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  }
+};
+
+const headerVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
   }
 };
 
@@ -33,7 +53,7 @@ export default function CoursesPreview() {
 
   return (
     <section className="py-20 lg:py-32 bg-muted/30 relative overflow-hidden">
-      {/* Background Pattern */}
+      {/* Background Pattern - Static */}
       <div className="absolute inset-0 opacity-50">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, var(--border) 1px, transparent 0)`,
@@ -44,10 +64,10 @@ export default function CoursesPreview() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
           className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12"
         >
           <div className="max-w-2xl">
@@ -75,13 +95,17 @@ export default function CoursesPreview() {
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-50px" }}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
         >
           {featuredCourses.map((course) => (
-            <motion.div key={course.id} variants={itemVariants}>
+            <motion.div
+              key={course.id}
+              variants={itemVariants}
+              className="will-change-transform"
+            >
               <Link href={`/courses/${course.id}`}>
-                <Card className="group h-full bg-card hover:shadow-2xl transition-all duration-500 border-border/50 overflow-hidden cursor-pointer">
+                <Card className="group h-full bg-card hover:shadow-2xl transition-shadow duration-300 border-border/50 overflow-hidden cursor-pointer">
                   {/* Course Image */}
                   <div className="relative h-48 overflow-hidden">
                     <Image
@@ -91,8 +115,8 @@ export default function CoursesPreview() {
                       className="object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     {/* Gradient Overlay */}
-                    <div className={`absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent`} />
-                    <div className={`absolute inset-0 bg-linear-to-br ${course.color} opacity-30`} />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <div className={`absolute inset-0 bg-gradient-to-br ${course.color} opacity-30`} />
 
                     {/* Level Badge */}
                     <div className="absolute top-4 left-4">
@@ -136,7 +160,7 @@ export default function CoursesPreview() {
                     {/* Price & CTA */}
                     <div className="flex items-center justify-between pt-4 border-t border-border">
                       <span className="text-lg font-bold text-primary">{course.price}</span>
-                      <span className="text-sm text-primary font-medium group-hover:translate-x-1 transition-transform flex items-center gap-1">
+                      <span className="text-sm text-primary font-medium group-hover:translate-x-1 transition-transform duration-200 flex items-center gap-1">
                         Learn More
                         <ArrowRight className="h-4 w-4" />
                       </span>

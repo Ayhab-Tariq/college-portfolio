@@ -29,6 +29,33 @@ const benefits = [
   "Expert faculty members",
 ];
 
+// Optimized animation variants
+const fadeInUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      delay,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  })
+};
+
+const fadeInRight = {
+  hidden: { opacity: 0, x: 30 },
+  visible: (delay = 0) => ({
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.6,
+      delay,
+      ease: [0.25, 0.46, 0.45, 0.94]
+    }
+  })
+};
+
 export default function CTA() {
   return (
     <section className="py-20 lg:py-32 relative overflow-hidden">
@@ -41,46 +68,26 @@ export default function CTA() {
           className="object-cover"
         />
         {/* Multi-layer Overlay */}
-        <div className="absolute inset-0 bg-linear-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
-        <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-violet-950/95 via-indigo-950/90 to-purple-950/95" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/40" />
       </div>
 
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5 z-1">
+      {/* Background Pattern - Static */}
+      <div className="absolute inset-0 opacity-5 z-[1]">
         <div className="absolute inset-0" style={{
           backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
       </div>
 
-      {/* Animated Floating Orbs */}
-      <motion.div
-        animate={{
-          scale: [1, 1.3, 1],
-          opacity: [0.2, 0.4, 0.2],
-          x: [0, 50, 0],
-          y: [0, -30, 0]
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 left-1/6 w-72 h-72 bg-violet-500/20 rounded-full blur-3xl z-1"
+      {/* Static Gradient Orbs - Using CSS animations instead of framer-motion */}
+      <div
+        className="absolute top-1/4 left-[15%] w-72 h-72 bg-violet-500/20 rounded-full blur-3xl z-[1] animate-pulse-slow"
+        style={{ willChange: 'opacity' }}
       />
-      <motion.div
-        animate={{
-          scale: [1.2, 1, 1.2],
-          opacity: [0.3, 0.2, 0.3],
-          x: [0, -40, 0],
-          y: [0, 40, 0]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute bottom-1/4 right-1/6 w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl z-1"
-      />
-      <motion.div
-        animate={{
-          scale: [1, 1.15, 1],
-          opacity: [0.15, 0.25, 0.15]
-        }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-indigo-500/15 rounded-full blur-3xl z-1"
+      <div
+        className="absolute bottom-1/4 right-[15%] w-80 h-80 bg-cyan-500/20 rounded-full blur-3xl z-[1] animate-pulse-slow"
+        style={{ animationDelay: '2s', willChange: 'opacity' }}
       />
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -89,22 +96,18 @@ export default function CTA() {
             {/* Main Content */}
             <div className="lg:col-span-3 text-center lg:text-left">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5 }}
+                variants={fadeInUp}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-100px" }}
+                custom={0}
               >
                 {/* Badge */}
-                <motion.div
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  viewport={{ once: true }}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white text-sm mb-6 shadow-lg"
-                >
+                <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 text-white text-sm mb-6 shadow-lg">
                   <Sparkles className="h-4 w-4 text-yellow-400" />
                   <span>Admissions Open for 2026</span>
                   <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                </motion.div>
+                </div>
 
                 {/* Heading */}
                 <h2
@@ -112,7 +115,7 @@ export default function CTA() {
                   style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.3)' }}
                 >
                   Ready to Transform{" "}
-                  <span className="text-transparent bg-clip-text bg-linear-to-r from-cyan-400 via-violet-400 to-pink-400">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-violet-400 to-pink-400">
                     Your Future?
                   </span>
                 </h2>
@@ -128,10 +131,11 @@ export default function CTA() {
 
                 {/* Benefits List */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: 0.2 }}
+                  custom={0.15}
                   className="grid grid-cols-2 gap-3 mb-8"
                 >
                   {benefits.map((benefit, index) => (
@@ -147,66 +151,58 @@ export default function CTA() {
 
                 {/* CTA Buttons */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: 0.3 }}
+                  custom={0.25}
                   className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mb-10"
                 >
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                  <Button
+                    asChild
+                    size="lg"
+                    className="bg-gradient-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0 transition-transform duration-200 hover:scale-105"
                   >
-                    <Button
-                      asChild
-                      size="lg"
-                      className="bg-linear-to-r from-violet-600 to-indigo-600 hover:from-violet-700 hover:to-indigo-700 text-white px-8 py-6 text-lg rounded-full shadow-lg shadow-violet-500/30 border-0"
-                    >
-                      <Link href="/apply" className="flex items-center gap-2">
-                        <GraduationCap className="h-5 w-5" />
-                        Apply Now
-                        <ArrowRight className="h-5 w-5" />
-                      </Link>
-                    </Button>
-                  </motion.div>
+                    <Link href="/apply" className="flex items-center gap-2">
+                      <GraduationCap className="h-5 w-5" />
+                      Apply Now
+                      <ArrowRight className="h-5 w-5" />
+                    </Link>
+                  </Button>
 
-                  <motion.div
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.97 }}
+                  <Button
+                    asChild
+                    size="lg"
+                    variant="outline"
+                    className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full transition-colors duration-200"
                   >
-                    <Button
-                      asChild
-                      size="lg"
-                      variant="outline"
-                      className="bg-white/10 backdrop-blur-sm border-white/30 text-white hover:bg-white/20 px-8 py-6 text-lg rounded-full"
-                    >
-                      <Link href="/contact">Talk to Admissions</Link>
-                    </Button>
-                  </motion.div>
+                    <Link href="/contact">Talk to Admissions</Link>
+                  </Button>
                 </motion.div>
 
                 {/* Contact Info */}
                 <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  variants={fadeInUp}
+                  initial="hidden"
+                  whileInView="visible"
                   viewport={{ once: true }}
-                  transition={{ delay: 0.4 }}
+                  custom={0.35}
                   className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6"
                 >
                   <a
                     href="tel:+15551234567"
-                    className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-200 group"
                   >
-                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-linear-to-br group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
+                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-violet-600/30 transition-colors duration-200">
                       <Phone className="h-5 w-5" />
                     </div>
                     <span>+1 (555) 123-4567</span>
                   </a>
                   <a
                     href="mailto:admissions@eduverse.edu"
-                    className="flex items-center gap-3 text-white/80 hover:text-white transition-colors group"
+                    className="flex items-center gap-3 text-white/80 hover:text-white transition-colors duration-200 group"
                   >
-                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-linear-to-br group-hover:from-violet-600/30 group-hover:to-indigo-600/30 transition-all">
+                    <div className="p-2.5 rounded-xl bg-white/10 group-hover:bg-violet-600/30 transition-colors duration-200">
                       <Mail className="h-5 w-5" />
                     </div>
                     <span>admissions@eduverse.edu</span>
@@ -217,21 +213,22 @@ export default function CTA() {
 
             {/* Stats Card */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="lg:col-span-2"
+              variants={fadeInRight}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              custom={0.2}
+              className="lg:col-span-2 will-change-transform"
             >
               <div className="relative">
                 {/* Glow Effect */}
-                <div className="absolute -inset-4 bg-linear-to-r from-violet-600/30 to-cyan-600/30 rounded-3xl blur-xl" />
+                <div className="absolute -inset-4 bg-gradient-to-r from-violet-600/30 to-cyan-600/30 rounded-3xl blur-xl" />
 
                 {/* Card */}
-                <div className="relative bg-white/10 backdrop-blur-xl border border-white/20 rounded-3xl p-8 shadow-2xl">
+                <div className="relative bg-white/10 backdrop-blur-md border border-white/20 rounded-3xl p-8 shadow-2xl">
                   {/* Card Header */}
                   <div className="text-center mb-8">
-                    <div className="inline-flex items-center justify-center p-3 bg-linear-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-violet-500/30">
+                    <div className="inline-flex items-center justify-center p-3 bg-gradient-to-br from-violet-600 to-indigo-600 rounded-2xl mb-4 shadow-lg shadow-violet-500/30">
                       <Trophy className="h-8 w-8 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-white mb-2">Why Students Choose Us</h3>
@@ -243,13 +240,14 @@ export default function CTA() {
                     {stats.map((stat, index) => (
                       <motion.div
                         key={index}
-                        initial={{ opacity: 0, x: 20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
+                        variants={fadeInRight}
+                        initial="hidden"
+                        whileInView="visible"
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3 + index * 0.1 }}
-                        className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors"
+                        custom={0.3 + index * 0.1}
+                        className="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200 will-change-transform"
                       >
-                        <div className="p-2.5 rounded-xl bg-linear-to-br from-violet-600/20 to-indigo-600/20">
+                        <div className="p-2.5 rounded-xl bg-gradient-to-br from-violet-600/20 to-indigo-600/20">
                           <stat.icon className="h-5 w-5 text-violet-400" />
                         </div>
                         <div>
@@ -262,11 +260,12 @@ export default function CTA() {
 
                   {/* Deadline Banner */}
                   <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    variants={fadeInUp}
+                    initial="hidden"
+                    whileInView="visible"
                     viewport={{ once: true }}
-                    transition={{ delay: 0.6 }}
-                    className="mt-6 p-4 rounded-xl bg-linear-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30"
+                    custom={0.6}
+                    className="mt-6 p-4 rounded-xl bg-gradient-to-r from-orange-500/20 to-amber-500/20 border border-orange-500/30"
                   >
                     <div className="flex items-center gap-3">
                       <Clock className="h-5 w-5 text-orange-400" />
